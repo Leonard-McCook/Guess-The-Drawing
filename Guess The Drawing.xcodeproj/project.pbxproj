@@ -11,6 +11,8 @@
 		D77614272B3E2302001D84E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614262B3E2302001D84E6 /* ContentView.swift */; };
 		D77614292B3E2304001D84E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D77614282B3E2304001D84E6 /* Assets.xcassets */; };
 		D776142C2B3E2304001D84E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D776142B2B3E2304001D84E6 /* Preview Assets.xcassets */; };
+		D77614332B3FF942001D84E6 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614322B3FF942001D84E6 /* MenuView.swift */; };
+		D77614352B3FF96B001D84E6 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614342B3FF96B001D84E6 /* MatchManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		D77614262B3E2302001D84E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D77614282B3E2304001D84E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D776142B2B3E2304001D84E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D77614322B3FF942001D84E6 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		D77614342B3FF96B001D84E6 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				D77614262B3E2302001D84E6 /* ContentView.swift */,
 				D77614282B3E2304001D84E6 /* Assets.xcassets */,
 				D776142A2B3E2304001D84E6 /* Preview Content */,
+				D77614322B3FF942001D84E6 /* MenuView.swift */,
+				D77614342B3FF96B001D84E6 /* MatchManager.swift */,
 			);
 			path = "Guess The Drawing";
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D77614272B3E2302001D84E6 /* ContentView.swift in Sources */,
+				D77614352B3FF96B001D84E6 /* MatchManager.swift in Sources */,
+				D77614332B3FF942001D84E6 /* MenuView.swift in Sources */,
 				D77614252B3E2302001D84E6 /* Guess_The_DrawingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
