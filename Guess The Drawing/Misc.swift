@@ -24,7 +24,7 @@ let everydayObjects = ["pen", "paper", "book", "cup", "spoon", "fork", "plate", 
     "crosswalk", "hydrant", "bench", "park", "zoo", "museum", "library", "school", "grocery store", "restaurant",
     "cinema", "theater", "hospital", "pharmacy", "post office", "bank", "hotel", "beach", "mountain", "river"]
 
-enum PlayAuthState: String {
+enum PlayerAuthState: String {
     case authenticating = "Logging in to Game Center..."
     case unauthenticated = "Please sign in to Game Center to play."
     case authenticated = ""
