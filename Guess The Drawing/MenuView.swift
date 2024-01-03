@@ -11,7 +11,29 @@ struct MenuView: View {
     @ObservedObject var matchManager: MatchManager
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            
+            Image("logo")
+                .resizable()
+                .scaledToFit()
+                .padding(30)
+            
+            Spacer()
+            
+            Button {
+                // TODO: Start Match,aking menu
+            } label: {
+                Text("PLAY")
+                    .font(.largeTitle)
+                    .bold()
+            }
+            .disabled(matchManager.authenticationState != .authenticated || matchManager.inGame)
+            .padding(.vertical, 20)
+            .padding(.horizontal, 100)
+            .background()
+        
+        }
     }
 }
 
