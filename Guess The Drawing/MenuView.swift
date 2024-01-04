@@ -31,8 +31,11 @@ struct MenuView: View {
             .disabled(matchManager.authenticationState != .authenticated || matchManager.inGame)
             .padding(.vertical, 20)
             .padding(.horizontal, 100)
-            .background()
-        
+            .background(
+                Capsule(style: .circular)
+                    .fill()
+                    
+            )
         }
     }
 }
@@ -42,3 +45,6 @@ struct MenuView_Previews: PreviewProvider {
         MenuView(matchManager: MatchManager())
     }
 }
+
+
+
