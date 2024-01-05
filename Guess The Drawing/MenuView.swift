@@ -25,6 +25,7 @@ struct MenuView: View {
                 // TODO: Start Match,aking menu
             } label: {
                 Text("PLAY")
+                    .foregroundColor(.white)
                     .font(.largeTitle)
                     .bold()
             }
@@ -33,10 +34,23 @@ struct MenuView: View {
             .padding(.horizontal, 100)
             .background(
                 Capsule(style: .circular)
-                    .fill()
+                    .fill(matchManager.authenticationState != .authenticated || matchManager.inGame ? .gray : Color("playBtn"))
                     
             )
+            
+            Text(matchManager.authenticationState.rawValue)
+                .font(.headline.weight(.semibold))
+                .foregroundColor(Color("primaryYellow"))
+                .padding()
+            
+            Spacer()
         }
+        .background(
+            Image("menuBg")
+                .resizable()
+                .scaledToFill()
+                .scaleEffect(1.1)
+       )
     }
 }
 
