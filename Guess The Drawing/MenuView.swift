@@ -51,6 +51,7 @@ struct MenuView: View {
                 .scaledToFill()
                 .scaleEffect(1.1)
        )
+//        .ignoresSafeArea()
     }
 }
 

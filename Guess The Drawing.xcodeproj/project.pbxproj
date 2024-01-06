@@ -14,6 +14,7 @@
 		D77614332B3FF942001D84E6 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614322B3FF942001D84E6 /* MenuView.swift */; };
 		D77614352B3FF96B001D84E6 /* MatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614342B3FF96B001D84E6 /* MatchManager.swift */; };
 		D77614372B424071001D84E6 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614362B424071001D84E6 /* Misc.swift */; };
+		D77614392B491C63001D84E6 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614382B491C63001D84E6 /* GameOverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D77614322B3FF942001D84E6 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		D77614342B3FF96B001D84E6 /* MatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchManager.swift; sourceTree = "<group>"; };
 		D77614362B424071001D84E6 /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		D77614382B491C63001D84E6 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				D77614322B3FF942001D84E6 /* MenuView.swift */,
 				D77614342B3FF96B001D84E6 /* MatchManager.swift */,
 				D77614362B424071001D84E6 /* Misc.swift */,
+				D77614382B491C63001D84E6 /* GameOverView.swift */,
 			);
 			path = "Guess The Drawing";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				D77614352B3FF96B001D84E6 /* MatchManager.swift in Sources */,
 				D77614332B3FF942001D84E6 /* MenuView.swift in Sources */,
 				D77614372B424071001D84E6 /* Misc.swift in Sources */,
+				D77614392B491C63001D84E6 /* GameOverView.swift in Sources */,
 				D77614252B3E2302001D84E6 /* Guess_The_DrawingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
