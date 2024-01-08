@@ -12,8 +12,22 @@ struct GameView: View {
     @State var drawingGuess = ""
     @State var eraserEnabled = ""
     
+    func makeGuess() {
+        // TODO: Submit the guess
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            GeometryReader { _ in
+                Image(matchManager.currentlyDrawing ? "drawBg" : "guesserBg")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                    .scaleEffect(1.1)
+                
+                
+            }
+        }
     }
 }
 
