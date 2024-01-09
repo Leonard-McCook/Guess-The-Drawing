@@ -25,9 +25,40 @@ struct GameView: View {
                     .ignoresSafeArea()
                     .scaleEffect(1.1)
                 
-                
+                VStack {
+                    topBar
+                }
             }
         }
+    }
+    
+    var topBar: some View {
+        ZStack {
+            HStack {
+                Button {
+                    // TODO: Disconnect From Game
+                } label: {
+                    Image(systemName: "arrowshape.turn.up.left.circle.fill")
+                        .font(.largeTitle)
+                        .tint(Color(matchManager
+                            .currentlyDrawing ?
+                            "primaryYellow" :
+                            "primaryPurple"))
+                }
+                
+                Spacer()
+                
+                Label("\(matchManager.remainingTime)",
+                    systemImage: "clock.fill")
+                .bold()
+                .font(.title2)
+                .foregroundStyle((Color(matchManager
+                    .currentlyDrawing ?
+                    "primaryYellow" :
+                    "primaryPurple")))
+            }
+        }
+        .padding(.vertical, 15)
     }
 }
 
