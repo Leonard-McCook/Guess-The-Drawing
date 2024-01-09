@@ -16,6 +16,7 @@
 		D77614372B424071001D84E6 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614362B424071001D84E6 /* Misc.swift */; };
 		D77614392B491C63001D84E6 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614382B491C63001D84E6 /* GameOverView.swift */; };
 		D7A61B382B4AA9EE0087A50B /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A61B372B4AA9EE0087A50B /* GameView.swift */; };
+		D7ADD7492B4D7E86004B7618 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ADD7482B4D7E86004B7618 /* DrawingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		D77614362B424071001D84E6 /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		D77614382B491C63001D84E6 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		D7A61B372B4AA9EE0087A50B /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		D7ADD7482B4D7E86004B7618 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				D77614362B424071001D84E6 /* Misc.swift */,
 				D77614382B491C63001D84E6 /* GameOverView.swift */,
 				D7A61B372B4AA9EE0087A50B /* GameView.swift */,
+				D7ADD7482B4D7E86004B7618 /* DrawingView.swift */,
 			);
 			path = "Guess The Drawing";
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				D77614272B3E2302001D84E6 /* ContentView.swift in Sources */,
 				D77614352B3FF96B001D84E6 /* MatchManager.swift in Sources */,
 				D77614332B3FF942001D84E6 /* MenuView.swift in Sources */,
+				D7ADD7492B4D7E86004B7618 /* DrawingView.swift in Sources */,
 				D77614372B424071001D84E6 /* Misc.swift in Sources */,
 				D77614392B491C63001D84E6 /* GameOverView.swift in Sources */,
 				D77614252B3E2302001D84E6 /* Guess_The_DrawingApp.swift in Sources */,
