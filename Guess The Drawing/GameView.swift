@@ -10,7 +10,7 @@ import SwiftUI
 struct GameView: View {
     @ObservedObject var matchManager: MatchManager
     @State var drawingGuess = ""
-    @State var eraserEnabled = ""
+    @State var eraserEnabled = false
     
     func makeGuess() {
         // TODO: Submit the guess
@@ -27,6 +27,16 @@ struct GameView: View {
                 
                 VStack {
                     topBar
+                    
+                    ZStack {
+                        DrawingView(matchManager: matchManager, eraserEnabled:
+                            $eraserEnabled)
+                           .aspectRatio(1, contentMode: .fit)
+                           .overlay(
+                              RoundedRectangle(cornerRadius: 10)
+                           .stroke(.black, lineWidth: 10))
+                        
+                    }
                 }
             }
         }
