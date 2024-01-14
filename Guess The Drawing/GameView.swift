@@ -19,7 +19,7 @@ struct GameView: View {
     var body: some View {
         ZStack {
             GeometryReader { _ in
-                Image(matchManager.currentlyDrawing ? "drawBg" : "guesserBg")
+                Image(matchManager.currentlyDrawing ? "drawerBg" : "guesserBg")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
@@ -66,6 +66,13 @@ struct GameView: View {
                 .padding(.horizontal, 30)
                 .ignoresSafeArea(.keyboard, edges: .bottom)
             }
+            
+            VStack {
+                Spacer()
+                
+                promptGroup
+            }
+            .ignoresSafeArea(.container)
         }
     }
     
@@ -132,8 +139,61 @@ struct GameView: View {
     .clipShape(RoundedRectangle(cornerRadius: 20))
     .padding(.vertical)
     .padding(.bottom, 130)
-        
-        
+    }
+    
+    var promptGroup: some View {
+        VStack {
+            if matchManager.currentlyDrawing {
+                Label("DRAW:", systemImage: "exclamationmark.bubble.fill")
+                    .font(.title2)
+                    .bold()
+                    .foregroundColor(.white)
+                Text(matchManager.drawPrompt.uppercased())
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+                    .foregroundColor(Color("primaryYellow"))
+            } else {
+                HStack {
+                    Label("GUESS THE DRAWING:", systemImage: "exclamationmark.bubble.fill")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(Color("primaryPurple"))
+                    
+                    Spacer()
+                }
+                
+                HStack {
+                    TextField("Type your guess", text: $drawingGuess)
+                        .padding()
+                        .background(
+                            Capsule(style: .circular)
+                                .fill(.white)
+                        )
+                        .onSubmit(makeGuess)
+                    
+                    Button {
+                        makeGuess()
+                    } label: {
+                        Image(systemName: "chevron.right.circle.fill")
+                            .renderingMode(.original)
+                            .foregroundColor(Color("primaryPurple"))
+                            .font(.system(size: 50))
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding([.horizontal, .bottom], 30)
+        .padding(.vertical)
+        .background(
+            (matchManager.currentlyDrawing ?
+                 Color(red: 0.243, green: 0.773, blue: 0.745) :
+                 Color("primaryYellow")
+            )
+            .opacity(0.5)
+            .brightness(-0.2)
+        )
     }
 }
 
