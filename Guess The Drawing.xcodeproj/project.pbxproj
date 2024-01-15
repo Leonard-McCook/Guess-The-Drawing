@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D768E1F32B55DC5B006CF976 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D768E1F22B55DC5B006CF976 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */; };
 		D77614252B3E2302001D84E6 /* Guess_The_DrawingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614242B3E2302001D84E6 /* Guess_The_DrawingApp.swift */; };
 		D77614272B3E2302001D84E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77614262B3E2302001D84E6 /* ContentView.swift */; };
 		D77614292B3E2304001D84E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D77614282B3E2304001D84E6 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		D768E1F12B54BB61006CF976 /* Guess The Drawing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Guess The Drawing.entitlements"; sourceTree = "<group>"; };
+		D768E1F22B55DC5B006CF976 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchmakerViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		D77614212B3E2302001D84E6 /* Guess The Drawing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guess The Drawing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77614242B3E2302001D84E6 /* Guess_The_DrawingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guess_The_DrawingApp.swift; sourceTree = "<group>"; };
 		D77614262B3E2302001D84E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				D77614382B491C63001D84E6 /* GameOverView.swift */,
 				D7A61B372B4AA9EE0087A50B /* GameView.swift */,
 				D7ADD7482B4D7E86004B7618 /* DrawingView.swift */,
+				D768E1F22B55DC5B006CF976 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */,
 			);
 			path = "Guess The Drawing";
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				D77614272B3E2302001D84E6 /* ContentView.swift in Sources */,
 				D77614352B3FF96B001D84E6 /* MatchManager.swift in Sources */,
+				D768E1F32B55DC5B006CF976 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
 				D77614332B3FF942001D84E6 /* MenuView.swift in Sources */,
 				D7ADD7492B4D7E86004B7618 /* DrawingView.swift in Sources */,
 				D77614372B424071001D84E6 /* Misc.swift in Sources */,
