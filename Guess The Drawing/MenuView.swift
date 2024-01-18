@@ -22,7 +22,7 @@ struct MenuView: View {
             Spacer()
             
             Button {
-                // TODO: Start Match,aking menu
+                matchManager.startMatchmaking()
             } label: {
                 Text("PLAY")
                     .foregroundColor(.white)
