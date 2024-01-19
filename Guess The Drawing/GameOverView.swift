@@ -20,7 +20,7 @@ struct GameOverView: View {
                 .padding(.horizontal, 70)
                 .padding(.vertical)
             
-            Text("Score \(matchManager.score)")
+            Text("Score: \(matchManager.score)")
                 .font(.largeTitle)
                 .bold()
                 .foregroundColor(Color("primaryYellow"))
@@ -28,7 +28,7 @@ struct GameOverView: View {
             Spacer()
             
             Button {
-                // TODO: Go back to menu
+                matchManager.resetGame()
             } label: {
                 Text("Menu")
                     .foregroundColor(Color("menuBtn"))
@@ -41,9 +41,7 @@ struct GameOverView: View {
             .background(
                 Capsule(style: .circular)
                     .fill(Color("menuBtn"))
-                    
             )
-
             
             Spacer()
         }
@@ -52,11 +50,14 @@ struct GameOverView: View {
                 .resizable()
                 .scaledToFill()
                 .scaleEffect(1.1)
-       )
-//        .ignoresSafeArea()
+        )
+        .ignoresSafeArea()
     }
 }
 
-#Preview {
-    GameOverView(matchManager: MatchManager())
+struct GameOverView_Previews: PreviewProvider {
+    static var previews: some View {
+        GameOverView(matchManager: MatchManager())
+    }
 }
+

@@ -17,21 +17,21 @@ struct DrawingView: UIViewRepresentable {
         }
         
         func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-            // TODO: Send the new drawing data
+            guard canvasView.isUserInteractionEnabled else { return }
+            matchManager.sendData(canvasView.drawing.dataRepresentation(), mode: .reliable)
         }
     }
-    
-    var canvasView = PKCanvasView()
     
     @ObservedObject var matchManager: MatchManager
     @Binding var eraserEnabled: Bool
     
     func makeUIView(context: Context) -> PKCanvasView {
+        let canvasView = PKCanvasView()
+        
         canvasView.drawingPolicy = .anyInput
         canvasView.tool = PKInkingTool(.pen, color: .black, width: 5)
         canvasView.delegate = context.coordinator
-        canvasView.isUserInteractionEnabled =
-            matchManager.currentlyDrawing
+        canvasView.isUserInteractionEnabled = matchManager.currentlyDrawing
         
         return canvasView
     }
@@ -41,18 +41,23 @@ struct DrawingView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: PKCanvasView, context: Context) {
-        // TODO: Handle various updates
+        let wasDrawing = uiView.isUserInteractionEnabled
+        uiView.isUserInteractionEnabled = matchManager.currentlyDrawing
+        if !wasDrawing && matchManager.currentlyDrawing {
+            uiView.drawing = PKDrawing()
+        }
         
-        canvasView.tool = eraserEnabled ?
-        PKEraserTool(.vector) : PKInkingTool(.pen, color: .black, width: 5)
+        if !uiView.isUserInteractionEnabled || !matchManager.inGame {
+            uiView.drawing = matchManager.lastReceivedDrawing
+        }
+        
+        uiView.tool = eraserEnabled ? PKEraserTool(.vector) : PKInkingTool(.pen, color: .black, width: 5)
     }
 }
 
-struct DrawingView_Preview: PreviewProvider {
+struct DrawingView_Previews: PreviewProvider {
     @State static var eraser = false
     static var previews: some View {
-        DrawingView(matchManager: MatchManager(),
-                    eraserEnabled: $eraser)
+        DrawingView(matchManager: MatchManager(), eraserEnabled: $eraser)
     }
-    
 }

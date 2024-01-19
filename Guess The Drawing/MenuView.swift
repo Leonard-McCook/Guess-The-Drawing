@@ -35,7 +35,6 @@ struct MenuView: View {
             .background(
                 Capsule(style: .circular)
                     .fill(matchManager.authenticationState != .authenticated || matchManager.inGame ? .gray : Color("playBtn"))
-                    
             )
             
             Text(matchManager.authenticationState.rawValue)
@@ -50,8 +49,8 @@ struct MenuView: View {
                 .resizable()
                 .scaledToFill()
                 .scaleEffect(1.1)
-       )
-//        .ignoresSafeArea()
+        )
+        .ignoresSafeArea()
     }
 }
 
@@ -60,6 +59,4 @@ struct MenuView_Previews: PreviewProvider {
         MenuView(matchManager: MatchManager())
     }
 }
-
-
 

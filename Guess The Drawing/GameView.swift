@@ -7,13 +7,17 @@
 
 import SwiftUI
 
+var countdownTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
 struct GameView: View {
     @ObservedObject var matchManager: MatchManager
     @State var drawingGuess = ""
     @State var eraserEnabled = false
     
     func makeGuess() {
-        // TODO: Submit the guess
+        guard drawingGuess != "" else { return }
+        matchManager.sendString("guess:\(drawingGuess)")
+        drawingGuess = ""
     }
     
     var body: some View {
@@ -29,14 +33,12 @@ struct GameView: View {
                     topBar
                     
                     ZStack {
-                        DrawingView(matchManager: matchManager, eraserEnabled:
-                            $eraserEnabled)
-                           .aspectRatio(1, contentMode: .fit)
-                           .overlay(
-                              RoundedRectangle(cornerRadius: 10)
-                           .stroke(.black, lineWidth: 10)
-                           
-                           )
+                        DrawingView(matchManager: matchManager, eraserEnabled: $eraserEnabled)
+                            .aspectRatio(1, contentMode: .fit)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.black, lineWidth: 10)
+                            )
                         
                         VStack {
                             HStack {
@@ -46,12 +48,10 @@ struct GameView: View {
                                     Button {
                                         eraserEnabled.toggle()
                                     } label: {
-                                        Image(systemName: eraserEnabled ?
-                                              "eraser.fill" : "eraser")
-                                              .font(.title)
-                                              .foregroundStyle(Color("primaryPurple"))
-                                              .padding(.top, 10)
-                                        
+                                        Image(systemName: eraserEnabled ? "eraser.fill" : "eraser")
+                                            .font(.title)
+                                            .foregroundColor(Color("primaryPurple"))
+                                            .padding(.top, 10)
                                     }
                                 }
                             }
@@ -74,33 +74,36 @@ struct GameView: View {
             }
             .ignoresSafeArea(.container)
         }
+        .onReceive(countdownTimer) { _ in
+            guard matchManager.isTimeKeeper else { return }
+            matchManager.remainingTime -= 1
+        }
     }
     
     var topBar: some View {
         ZStack {
             HStack {
                 Button {
-                    // TODO: Disconnect From Game
+                    matchManager.match?.disconnect()
+                    matchManager.resetGame()
                 } label: {
                     Image(systemName: "arrowshape.turn.up.left.circle.fill")
                         .font(.largeTitle)
-                        .tint(Color(matchManager
-                            .currentlyDrawing ?
-                            "primaryYellow" :
-                            "primaryPurple"))
+                        .tint(Color(matchManager.currentlyDrawing ? "primaryYellow" : "primaryPurple"))
                 }
                 
                 Spacer()
                 
-                Label("\(matchManager.remainingTime)",
-                    systemImage: "clock.fill")
-                .bold()
-                .font(.title2)
-                .foregroundStyle((Color(matchManager
-                    .currentlyDrawing ?
-                    "primaryYellow" :
-                    "primaryPurple")))
+                Label("\(matchManager.remainingTime)", systemImage: "clock.fill")
+                    .bold()
+                    .font(.title2)
+                    .foregroundColor(Color(matchManager.currentlyDrawing ? "primaryYellow" : "primaryPurple"))
             }
+            
+            Text("Score: \(matchManager.score)")
+                .bold()
+                .font(.title)
+                .foregroundColor(Color(matchManager.currentlyDrawing ? "primaryYellow" : "primaryPurple"))
         }
         .padding(.vertical, 15)
     }
@@ -115,10 +118,9 @@ struct GameView: View {
                     
                     if guess.correct {
                         Image(systemName: "hand.thumbsup.fill")
-                            .foregroundStyle(matchManager.currentlyDrawing ?
+                            .foregroundColor(matchManager.currentlyDrawing ?
                                  Color(red: 0.808, green: 0.345, blue: 0.776) :
                                  Color(red: 0.243, green: 0.773, blue: 0.745)
-                            
                             )
                     }
                 }
@@ -132,13 +134,13 @@ struct GameView: View {
             (matchManager.currentlyDrawing ?
                 Color(red: 0.243, green: 0.773, blue: 0.745) :
                 Color("primaryYellow")
+            )
+            .brightness(-0.2)
+            .opacity(0.5)
         )
-        .brightness(-0.2)
-        .opacity(0.5)
-    )
-    .clipShape(RoundedRectangle(cornerRadius: 20))
-    .padding(.vertical)
-    .padding(.bottom, 130)
+        .cornerRadius(20)
+        .padding(.vertical)
+        .padding(.bottom, 130)
     }
     
     var promptGroup: some View {
@@ -197,6 +199,9 @@ struct GameView: View {
     }
 }
 
-#Preview {
-    GameView(matchManager: MatchManager())
+struct GameView_Previews: PreviewProvider {
+    static var previews: some View {
+        GameView(matchManager: MatchManager())
+    }
 }
+
