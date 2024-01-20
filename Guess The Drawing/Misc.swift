@@ -30,7 +30,7 @@ enum PlayerAuthState: String {
     case authenticated = ""
     
     case error = "There was an error logging into Game Center."
-    case restricted = "You're allowed to play multiplayer games!"
+    case restricted = "You're not allowed to play multiplayer games!"
 }
 
 struct PastGuess: Identifiable {
